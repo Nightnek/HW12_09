@@ -11,14 +11,22 @@
 
 Нажмите кнопку «Создать кластер» и дождитесь окончания процесса создания, статус кластера = RUNNING. Кластер создаётся от 5 до 10 минут.
 
+![image](https://github.com/Nightnek/HW12_09/assets/127677631/bb2efc83-4682-4f9f-90c3-569fff511df5)
+![image](https://github.com/Nightnek/HW12_09/assets/127677631/b30630e9-0a11-49d4-b74c-8de0226ae9b9)
+
+
 ### Подключение к мастеру и реплике
 Используйте инструкцию по подключению к кластеру, доступную на вкладке «Обзор»: cкачайте SSL-сертификат и подключитесь к кластеру с помощью утилиты psql, указав hostname всех узлов и атрибут target_session_attrs=read-write.
 
 Проверьте, что подключение прошло к master-узлу.
 
 select case when pg_is_in_recovery() then 'REPLICA' else 'MASTER' end;
+![image](https://github.com/Nightnek/HW12_09/assets/127677631/fafaa338-8ea7-4485-b070-1f67d9b99592)
+
+
 Посмотрите количество подключенных реплик:
 select count(*) from pg_stat_replication;
+![image](https://github.com/Nightnek/HW12_09/assets/127677631/5cdfe00a-212b-481f-8c31-44079fa133aa)
 
 
 ### Проверьте работоспособность репликации в кластере
@@ -39,3 +47,5 @@ select * from test_table;
 В качестве результата вашей работы пришлите скриншоты:
 
 1) Созданной базы данных; 2) Результата вывода команды на реплике select * from test_table;.
+![image](https://github.com/Nightnek/HW12_09/assets/127677631/ae3061c5-1d7b-4ddd-9f89-83d896686cf7)
+
